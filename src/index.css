@@ -1,23 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
   background: #f3f4f6;
   display: flex;
   justify-content: center;
-  padding: 50px 16px;
+  align-items: flex-start;
+  min-height: 100vh;
   margin: 0;
+  padding: clamp(12px, 4vw, 50px);
 }
 
 .card {
   background: #fff;
-  padding: 48px;
-  border-radius: 16px;
+  padding: clamp(18px, 5vw, 48px);
+  border-radius: clamp(12px, 2vw, 16px);
   width: 100%;
   max-width: 640px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
 h2 {
-  font-size: 28px;
+  font-size: clamp(20px, 4vw, 28px);
   margin: 8px 0;
 }
 
@@ -25,19 +31,20 @@ form,
 .card > div {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: clamp(10px, 2vw, 18px);
 }
 
 input {
-  padding: 16px;
-  font-size: 17px;
+  width: 100%;
+  padding: clamp(10px, 2.5vw, 16px);
+  font-size: clamp(14px, 2.5vw, 17px);
   border: 1px solid #ccc;
   border-radius: 10px;
 }
 
 button {
-  padding: 16px;
-  font-size: 17px;
+  padding: clamp(10px, 2.5vw, 16px);
+  font-size: clamp(14px, 2.5vw, 17px);
   border-radius: 10px;
   cursor: pointer;
 }
@@ -49,8 +56,9 @@ button:disabled {
 
 .error {
   color: red;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   margin: 0;
+  min-height: 0;
 }
 
 .bar {
@@ -73,4 +81,24 @@ button:disabled {
 
 .pw-row input {
   flex: 1;
+  min-width: 0;
+}
+
+ul {
+  padding-left: 20px;
+  word-break: break-word;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Large screens: Back/Next side by side */
+@media (min-width: 600px) {
+  .actions {
+    flex-direction: row;
+  }
+  .actions button {
+    flex: 1;
+  }
 }
